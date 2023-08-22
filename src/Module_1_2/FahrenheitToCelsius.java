@@ -9,6 +9,6 @@ public class FahrenheitToCelsius {
         double fahrenheit = scanner.nextDouble();
 
         double celsius = (fahrenheit - 32) * ((double) 5 / 9);
-        System.out.printf("Temperature in Celsius: %6.1f\n",  celsius);
+        System.out.printf("Temperature in Celsius: %.1f\n",  celsius);
     }
 }

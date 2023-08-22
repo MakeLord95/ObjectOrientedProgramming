@@ -31,3 +31,5 @@ bin/
 .idea/*
 Ohtu.iml
 /Week_1/Week_1.iml
+out
+out/*

@@ -20,8 +20,8 @@ public class MultiplicationExam {
 
                 int result = factor_1 * factor_2;
 
-                System.out.printf("\nQuestion %d: What is the result of %d * %d:", i, factor_1, factor_2);
-                System.out.println(result);
+                System.out.printf("\nQuestion %d: What is the result of %d * %d: ", i, factor_1, factor_2);
+                //System.out.println(result);
 
                 int userGuess = scanner.nextInt();
 
@@ -33,7 +33,7 @@ public class MultiplicationExam {
                 }
             }
             if (correct_results == 10) {
-                System.out.println("Congratulations. You got 10 / 10!");
+                System.out.println("\nCongratulations. You got 10 / 10!");
             } else {
                 System.out.printf("Failure. You got %d / 10 correct! Try again!\n", correct_results);
             }

@@ -43,9 +43,9 @@ public class SubArraySum {
             }
         }
         */
-
+        /*
         System.out.printf("Maximum sum: %d", maxSum);
         System.out.printf("Integers: %d - %d", start + 1, end + 1);
-
+        */
     }
 }

@@ -2,50 +2,40 @@ package Module_1_4;
 
 import java.util.Scanner;
 
-// TODO: Rewrite with own code
-
-
 public class SubArraySum {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        /*
-        int end = 0;
-        int start = 0;
-        int maxSum = Integer.MIN_VALUE;
-        int tempStart = 0;
-        int currentSum = 0;
-        */
-
         System.out.print("How many integers do you want to enter: ");
-        final int numbers = scanner.nextInt();
+        final int size = scanner.nextInt();
 
-        int[] list = new int[numbers];
+        int[] array = new int[size];
 
-        for (int i = 0; i < numbers; i++) {
+        for (int i = 0; i < size; i++) {
             System.out.printf("Enter integer %d: ", i + 1);
-            list[i] = scanner.nextInt();
+            array[i] = scanner.nextInt();
         }
 
-        /*
-        for (int i = 0; i < numbers; i++) {
-            currentSum += list[i];
+        int maxSum = Integer.MIN_VALUE;
+        int startIndex = -1;
+        int endIndex = -1;
 
-            if (currentSum > maxSum) {
-                maxSum = currentSum;
-                start = tempStart;
-                end = i;
-            }
+        for (int start = 0; start < array.length; start++) {
+            int currentSum = 0;
 
-            if (currentSum < 0) {
-                currentSum = 0;
-                tempStart = i + 1;
+            for (int end = start; end < array.length; end++) {
+                currentSum += array[end];
+
+                if (currentSum > maxSum) {
+                    maxSum = currentSum;
+                    startIndex = start;
+                    endIndex = end;
+                }
             }
         }
-        */
-        /*
-        System.out.printf("Maximum sum: %d", maxSum);
-        System.out.printf("Integers: %d - %d", start + 1, end + 1);
-        */
+
+        System.out.printf("\nMaximum sum: %d\n", maxSum);
+        System.out.printf("Subarray indices: %d - %d", (startIndex + 1), (endIndex + 1));
+
     }
 }

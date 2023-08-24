@@ -10,38 +10,38 @@ public class DuplicateRemover {
         int j = 0;
         boolean firstRun = true;
 
-        System.out.print("How many integers do you want in the list: ");
-        int listSize = scanner.nextInt();
+        System.out.print("How many integers do you want in the array: ");
+        int arraySize = scanner.nextInt();
 
-        if (listSize > 0) {
+        if (arraySize > 0) {
 
-            int[] list = new int[listSize];
-            int[] listNoDupes = new int[listSize];
+            int[] array = new int[arraySize];
+            int[] arrayNoDupes = new int[arraySize];
 
-            for (int i = 0; i < listSize; i++) {
+            for (int i = 0; i < arraySize; i++) {
                 System.out.printf("Enter integer %d: ", i + 1);
-                list[i] = scanner.nextInt();
+                array[i] = scanner.nextInt();
             }
 
-            Arrays.sort(list);
+            Arrays.sort(array);
 
-            int currentNBR = list[0];
+            int currentNBR = array[0];
 
-            for (int k : list) {
+            for (int k : array) {
                 if (firstRun) {
-                    listNoDupes[j] = currentNBR;
+                    arrayNoDupes[j] = currentNBR;
                     firstRun = false;
                     j++;
                 } else if (k != currentNBR) {
                     currentNBR = k;
-                    listNoDupes[j] = currentNBR;
+                    arrayNoDupes[j] = currentNBR;
                     j++;
                 }
             }
 
-            System.out.println("The list without duplicates:");
+            System.out.println("The array without duplicates:");
 
-            for (int listNoDupe : listNoDupes) {
+            for (int listNoDupe : arrayNoDupes) {
                 if (listNoDupe != 0) {
                     System.out.printf("%d ", listNoDupe);
                 }

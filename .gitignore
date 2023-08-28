@@ -27,8 +27,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-.idea
-.idea/*
-Ohtu.iml
-out
-out/*
+/.idea/.gitignore
+/Ohtu.iml
+/.idea/vcs.xml
+/.idea/modules.xml
+/.idea/misc.xml
+/out/*

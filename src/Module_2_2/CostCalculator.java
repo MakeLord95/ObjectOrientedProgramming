@@ -1,14 +1,14 @@
 package Module_2_2;
 
 
-import java.util.ArrayList;
+import java.util.HashMap;
 
 
 public class CostCalculator {
-    private final ArrayList<String> groceryList = new ArrayList<>();
+    private final HashMap<String, Double> groceryList = new HashMap<String, Double>();
 
     void addItem(String item, double cost) {
-        groceryList.add(item);
+        groceryList.put(item, cost);
     }
 
     void removeItem(String item) {
@@ -16,28 +16,22 @@ public class CostCalculator {
     }
 
     void displayList() {
-        for (int i = 0; i < groceryList.size(); i++) {
-            System.out.printf("%d. %s\n", i + 1, groceryList.get(i));
-        }
-        System.out.println();
+        // TODO: Finish this part
+        // TODO: Add total cost calculation to the program.
     }
 
     boolean checkList(String item) {
-        return groceryList.contains(item);
+        return groceryList.containsKey(item);
     }
 
-    double calculateTotalCost() {
-
-        return totalCost;
-    }
 
 
     public static void main(String[] args) {
-        GroceryListManager groceryList = new GroceryListManager();
+        CostCalculator groceryList = new CostCalculator();
 
-        groceryList.addItem("Apples");
-        groceryList.addItem("Milk");
-        groceryList.addItem("Bread");
+        groceryList.addItem("Apples", 1.5);
+        groceryList.addItem("Milk", 2);
+        groceryList.addItem("Bread", 2.5);
 
         System.out.println("Grocery list:");
         groceryList.displayList();

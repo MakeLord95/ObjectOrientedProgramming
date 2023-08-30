@@ -31,7 +31,7 @@ public class CategorizeItems {
             String item = entry.getKey();
             double cost = entry.getValue();
             String category = itemCategories.get(item);
-            System.out.printf("%s: %.2f€ (%s)%n", item, cost, category);
+            System.out.printf("%s: %.2f€ (%s)\n", item, cost, category);
         }
         System.out.println();
     }
@@ -41,7 +41,7 @@ public class CategorizeItems {
         if (items != null) {
             for (String item : items) {
                 double cost = groceryList.get(item);
-                System.out.printf("%s: %.2f€%n", item, cost);
+                System.out.printf("%s: %.2f€\n", item, cost);
             }
             System.out.println();
         } else {

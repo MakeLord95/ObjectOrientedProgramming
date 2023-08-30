@@ -17,7 +17,7 @@ public class QuantityTracker {
         groceryList.put(item, cost);
         itemCategories.put(item, category);
         categoryItems.computeIfAbsent(category, k -> new ArrayList<>()).add(item);
-        itemQuantities.put(item, 0); // Initialize quantity to 0
+        itemQuantities.put(item, 0);
     }
 
     void addItemWithQuantity(String item, int quantity) {
@@ -39,7 +39,7 @@ public class QuantityTracker {
             if (quantity > 0) {
                 double cost = groceryList.get(item);
                 String category = itemCategories.get(item);
-                System.out.printf("%s (Qty: %d): %.2f€ (%s)%n", item, quantity, cost, category);
+                System.out.printf("%s (Qty: %d): %.2f€ (%s)\n", item, quantity, cost, category);
             }
         }
         System.out.println();
@@ -58,7 +58,7 @@ public class QuantityTracker {
             String item = entry.getKey();
             double cost = entry.getValue();
             String category = itemCategories.get(item);
-            System.out.printf("%s: %.2f€ (%s)%n", item, cost, category);
+            System.out.printf("%s: %.2f€ (%s)\n", item, cost, category);
         }
         System.out.println();
     }
@@ -68,7 +68,7 @@ public class QuantityTracker {
         if (items != null) {
             for (String item : items) {
                 double cost = groceryList.get(item);
-                System.out.printf("%s: %.2f€%n", item, cost);
+                System.out.printf("%s: %.2f€\n", item, cost);
             }
             System.out.println();
         } else {

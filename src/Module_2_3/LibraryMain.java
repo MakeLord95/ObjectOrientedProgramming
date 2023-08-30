@@ -7,18 +7,18 @@ import java.util.ArrayList;
 class Library {
     private final ArrayList<Book> books = new ArrayList<>();
 
-    void addBook(Book book) {
+    public void addBook(Book book) {
         books.add(book);
     }
 
-    void displayBooks() {
+    public void displayBooks() {
         for (int i = 0; i < books.size(); i++) {
             Book book = books.get(i);
             System.out.printf("%d. Title: \"%s\", Author: \"%s\", Year: %d\n", i + 1, book.getTitle(), book.getAuthor(), book.getPublicationYear());
         }
     }
 
-    void findBooksByAuthor(String author) {
+    public void findBooksByAuthor(String author) {
         for (Book book : books) {
             String bookAuthor = book.getAuthor();
 

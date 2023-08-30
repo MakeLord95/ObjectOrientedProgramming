@@ -2,10 +2,12 @@ package Module_2_2;
 
 
 import java.util.HashMap;
+import java.util.Map;
 
 
 public class CostCalculator {
-    private final HashMap<String, Double> groceryList = new HashMap<String, Double>();
+    private final HashMap<String, Double> groceryList = new HashMap<>();
+    double totalCost = 0;
 
     void addItem(String item, double cost) {
         groceryList.put(item, cost);
@@ -16,14 +18,25 @@ public class CostCalculator {
     }
 
     void displayList() {
-        // TODO: Finish this part
-        // TODO: Add total cost calculation to the program.
+        for (Map.Entry<String, Double> entry : groceryList.entrySet()) {
+            String item = entry.getKey();
+            double cost = entry.getValue();
+            System.out.printf("%s: %.2f€%n", item, cost);
+        }
+        System.out.println();
     }
 
     boolean checkList(String item) {
         return groceryList.containsKey(item);
     }
 
+    double calculateTotalCost() {
+        for (Map.Entry<String, Double> entry : groceryList.entrySet()) {
+            double cost = entry.getValue();
+            totalCost += cost;
+        }
+        return totalCost;
+    }
 
 
     public static void main(String[] args) {
@@ -41,8 +54,10 @@ public class CostCalculator {
         System.out.println("Removing \"Milk\" from the list...\n");
         groceryList.removeItem("Milk");
 
-
         System.out.println("Updated grocery list:");
         groceryList.displayList();
+
+        System.out.println("Total cost of all items:");
+        System.out.printf("%.2f€\n", groceryList.calculateTotalCost());
     }
 }

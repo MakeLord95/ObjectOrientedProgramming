@@ -64,28 +64,28 @@ public class CoffeeMaker {
     public static void main(String[] args) {
         CoffeeMaker coffeeMaker = new CoffeeMaker();
 
-System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
-
-coffeeMaker.toggleStatus();
-System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
-
-coffeeMaker.setCoffeeType("espresso");
-System.out.printf("Coffee type: %s\n", coffeeMaker.getCoffeeType());
-
-coffeeMaker.setCoffeeAmount(50);
-System.out.printf("Coffee amount: %d\n", coffeeMaker.getCoffeeAmount());
-
-coffeeMaker.toggleStatus();
-System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
-
-coffeeMaker.setCoffeeType("normal");
-coffeeMaker.setCoffeeAmount(30);
-
-coffeeMaker.toggleStatus();
-
-coffeeMaker.setCoffeeType("cappuccino");
-
-System.out.printf("Coffee type: %s\n", coffeeMaker.getCoffeeType());
-System.out.printf("Coffee amount: %d\n", coffeeMaker.getCoffeeAmount());
+        System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
+        
+        coffeeMaker.toggleStatus();
+        System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
+        
+        coffeeMaker.setCoffeeType("espresso");
+        System.out.printf("Coffee type: %s\n", coffeeMaker.getCoffeeType());
+        
+        coffeeMaker.setCoffeeAmount(50);
+        System.out.printf("Coffee amount: %d\n", coffeeMaker.getCoffeeAmount());
+        
+        coffeeMaker.toggleStatus();
+        System.out.printf("Coffee maker is on: %s\n", coffeeMaker.getStatus());
+        
+        coffeeMaker.setCoffeeType("normal");
+        coffeeMaker.setCoffeeAmount(30);
+        
+        coffeeMaker.toggleStatus();
+        
+        coffeeMaker.setCoffeeType("cappuccino");
+        
+        System.out.printf("Coffee type: %s\n", coffeeMaker.getCoffeeType());
+        System.out.printf("Coffee amount: %d\n", coffeeMaker.getCoffeeAmount());
     }
 }

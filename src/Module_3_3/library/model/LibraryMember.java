@@ -3,18 +3,23 @@ package Module_3_3.library.model;
 import java.util.ArrayList;
 
 public class LibraryMember {
+    private static int nextID;
     private final String name;
+    private final int memberID;
     private final ArrayList<Book> borrowedBooks = new ArrayList<>();
     private final ArrayList<Book> reservedBooks = new ArrayList<>();
-    private int memberID;
 
     public LibraryMember(String name) {
         this.name = name;
-        ++this.memberID;
+        this.memberID = ++nextID;
     }
 
     public String getName() {
         return name;
+    }
+
+    public int getMemberID() {
+        return memberID;
     }
 
     public void addBorrowedBook(Book book) {

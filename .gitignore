@@ -36,3 +36,5 @@ bin/
 /.idea/uiDesigner.xml
 /.idea/dictionaries/make.xml
 /.idea/inspectionProfiles/Project_Default.xml
+/*.csv
+/*.ser

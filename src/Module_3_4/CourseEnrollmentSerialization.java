@@ -146,49 +146,40 @@ public class CourseEnrollmentSerialization {
     public static void main(String[] args) {
         File f = new File(FILENAME);
 
-        Student student = new Student();
-        Course course = new Course();
-        Enrollment enrollment = new Enrollment();
+        System.out.println("Writing objects to file");
 
-        if (f.exists() && f.isFile()) {
+        Student student = new Student("Matti", 27);
+        Course course = new Course("12345", "Arts & Crafts", "Mikko");
+        Enrollment enrollment = new Enrollment(student, course, "07.09.2023");
 
-            System.out.println("Reading objects from file");
+        try (FileOutputStream fileOutputStream = new FileOutputStream(FILENAME);
+             ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) {
 
-            try (FileInputStream inputStream = new FileInputStream(FILENAME);
-                 ObjectInputStream objects = new ObjectInputStream(inputStream);
-            ) {
-                student = (Student) objects.readObject();
-                course = (Course) objects.readObject();
-                enrollment = (Enrollment) objects.readObject();
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-                System.exit(1);
-            }
+            objectOutputStream.writeObject(student);
+            objectOutputStream.writeObject(course);
+            objectOutputStream.writeObject(enrollment);
 
-        } else {
-
-            System.out.println("Writing objects to file");
-
-            student = new Student("Matti", 27);
-            course = new Course("12345", "Arts & Crafts", "Mikko");
-            enrollment = new Enrollment(student, course, "07.09.2023");
-
-            try (FileOutputStream fileOutputStream = new FileOutputStream(FILENAME);
-                 ObjectOutputStream objectOutputStream = new ObjectOutputStream(fileOutputStream);) {
-
-                objectOutputStream.writeObject(student);
-                objectOutputStream.writeObject(course);
-                objectOutputStream.writeObject(enrollment);
-
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
-                System.exit(2);
-            }
-        }
-        try {
-            System.out.printf("Student: %s, Course: %s, Enrollment: %s\n", student, course, enrollment);
         } catch (Exception e) {
-            System.exit(3);
+            System.out.println(e.getMessage());
+            System.exit(2);
+        }
+
+        System.out.println("Reading objects from file");
+
+        try (FileInputStream inputStream = new FileInputStream(FILENAME);
+             ObjectInputStream objects = new ObjectInputStream(inputStream);
+        ) {
+            student = (Student) objects.readObject();
+            course = (Course) objects.readObject();
+            enrollment = (Enrollment) objects.readObject();
+
+            System.out.println(student);
+            System.out.println(course);
+            System.out.println(enrollment);
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+            System.exit(1);
         }
     }
 }

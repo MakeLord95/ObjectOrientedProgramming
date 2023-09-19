@@ -52,5 +52,15 @@ public class MultiThreadPrinter extends Thread {
 
         oddThread.start();
         evenThread.start();
+
+        try {
+            oddThread.join();
+            evenThread.join();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        System.out.println("Printing complete.");
+
     }
 }

@@ -38,3 +38,5 @@ bin/
 /.idea/inspectionProfiles/Project_Default.xml
 /*.csv
 /*.ser
+/target/*
+/.idea/jarRepositories.xml

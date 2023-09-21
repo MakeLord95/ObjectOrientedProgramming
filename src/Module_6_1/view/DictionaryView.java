@@ -54,17 +54,11 @@ public class DictionaryView extends Application {
         stage.setScene(scene);
         stage.show();
 
-        addWordButton.setOnAction(actionEvent -> {
-            controller.addWordToDictionary();
-        });
+        addWordButton.setOnAction(actionEvent -> controller.addWordToDictionary());
 
-        getMeaningButton.setOnAction(actionEvent -> {
-            getWordMeaning();
-        });
+        getMeaningButton.setOnAction(actionEvent -> getWordMeaning());
 
-        printLibrary.setOnAction(actionEvent -> {
-            controller.getDictionary();
-        });
+        printLibrary.setOnAction(actionEvent -> controller.getDictionary());
     }
 
     /*
@@ -85,7 +79,7 @@ public class DictionaryView extends Application {
      * Gets the meaning of a word
      */
     public void getWordMeaning() {
-        String wordMeaning = controller.getWordMeaning(word.getText());
+        String wordMeaning = controller.getWordMeaning(word.getText().toLowerCase());
         if (word.getText().isEmpty()) {
             word.setText("Empty field");
         } else {

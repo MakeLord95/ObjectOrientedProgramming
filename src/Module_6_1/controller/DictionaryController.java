@@ -18,8 +18,11 @@ public class DictionaryController {
         /*
          * Adding some words to the dictionary
          */
-        dictionary.addWord("Test", "Works");
-        dictionary.addWord("Hello", "World");
+        dictionary.addWord("Book", "A set of pages.");
+        dictionary.addWord("Car", "A road vehicle.");
+        dictionary.addWord("House", "A building for human habitation.");
+        dictionary.addWord("Computer", "An electronic device for storing and processing data.");
+        dictionary.addWord("Phone", "A telephone.");
     }
 
     /*

@@ -9,18 +9,29 @@ public class DictionaryController {
     private final DictionaryView dictionaryView;
     private final Dictionary dictionary = new Dictionary();
 
+    /*
+     * Initializes the controller
+     */
     public DictionaryController(DictionaryView dictionaryView) {
         this.dictionaryView = dictionaryView;
 
-        // Adding test words to the dictionary
+        /*
+         * Adding some words to the dictionary
+         */
         dictionary.addWord("Test", "Works");
         dictionary.addWord("Hello", "World");
     }
 
+    /*
+     * Launches the application
+     */
     public static void main(String[] args) {
         DictionaryView.launch(DictionaryView.class);
     }
 
+    /*
+     * Adds a word to the dictionary
+     */
     public void addWordToDictionary() {
         try {
             String answer = Arrays.toString(dictionaryView.getTextInBoxes().split(","));
@@ -34,12 +45,14 @@ public class DictionaryController {
         }
     }
 
+    /*
+     * Gets the meaning of a word
+     */
     public String getWordMeaning(String word) {
         try {
             return dictionary.getMeaning(word);
-        } catch (NullPointerException e) {
-            dictionaryView.illegalArgument();
-            return null;
+        } catch (Exception e) {
+            return "Empty field!";
         }
     }
 }

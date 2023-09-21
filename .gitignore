@@ -27,18 +27,9 @@ bin/
 
 ### Mac OS ###
 .DS_Store
-/.idea/.gitignore
 /Ohtu.iml
-/.idea/vcs.xml
-/.idea/modules.xml
-/.idea/misc.xml
 /out/*
-/.idea/uiDesigner.xml
-/.idea/dictionaries/make.xml
-/.idea/inspectionProfiles/Project_Default.xml
 /*.csv
 /*.ser
 /target/*
-/.idea/jarRepositories.xml
-/.idea/compiler.xml
-/.idea/encodings.xml
+/.idea*

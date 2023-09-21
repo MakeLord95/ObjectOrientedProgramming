@@ -9,10 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
-/*
- * This class is the view of the application
- */
-
 public class DictionaryView extends Application {
     private final TextField word = new TextField();
     private final TextField meaning = new TextField();
@@ -22,34 +18,22 @@ public class DictionaryView extends Application {
     public void start(Stage stage) {
         Button addWordButton = new Button("Add Word");
         Button getMeaningButton = new Button("Get Meaning");
-        Button printLibrary = new Button("Print Library");
 
         FlowPane pane = new FlowPane();
 
         stage.setTitle("Dictionary");
 
-        /*
-         * Setting the margins for the nodes
-         */
         Insets insets = new Insets(10, 10, 10, 10);
         FlowPane.setMargin(word, insets);
         FlowPane.setMargin(meaning, insets);
         FlowPane.setMargin(addWordButton, insets);
         FlowPane.setMargin(getMeaningButton, insets);
-        FlowPane.setMargin(printLibrary, insets);
 
-        /*
-         * Adding the nodes to the pane
-         */
         pane.getChildren().add(word);
         pane.getChildren().add(meaning);
         pane.getChildren().add(addWordButton);
         pane.getChildren().add(getMeaningButton);
-        pane.getChildren().add(printLibrary);
 
-        /*
-         * Setting the scene
-         */
         Scene scene = new Scene(pane);
         stage.setScene(scene);
         stage.show();
@@ -58,44 +42,45 @@ public class DictionaryView extends Application {
 
         getMeaningButton.setOnAction(actionEvent -> getWordMeaning());
 
-        printLibrary.setOnAction(actionEvent -> controller.getDictionary());
+
+        word.setOnMouseClicked(event -> {
+            word.clear();
+            word.setPromptText("");
+            word.setStyle("");
+        });
+
+        meaning.setOnMouseClicked(event -> {
+            meaning.clear();
+            meaning.setPromptText("");
+            meaning.setStyle("");
+        });
     }
 
-    /*
-     * Initializes the controller
-     */
     public void init() {
         controller = new DictionaryController(this);
     }
 
-    /*
-     * Gets the text in the text fields
-     */
     public String getTextInBoxes() {
         return String.format("%s,%s", word.getText(), meaning.getText());
     }
 
-    /*
-     * Gets the meaning of a word
-     */
     public void getWordMeaning() {
         String wordMeaning = controller.getWordMeaning(word.getText().toLowerCase());
         if (word.getText().isEmpty()) {
-            word.setText("Empty field");
+            illegalArgument();
         } else {
             meaning.setText(wordMeaning);
         }
     }
 
-    /*
-     * Displays an error message if the user enters an empty field
-     */
     public void illegalArgument() {
         if (meaning.getText().isEmpty()) {
-            meaning.setText("Empty field");
+            meaning.setPromptText("Empty field");
+            meaning.setStyle("-fx-background-color: red;");
         }
         if (word.getText().isEmpty()) {
-            word.setText("Empty field");
+            word.setPromptText("Empty field");
+            word.setStyle("-fx-background-color: red;");
         }
     }
 }

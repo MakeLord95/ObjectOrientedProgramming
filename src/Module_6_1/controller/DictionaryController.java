@@ -9,32 +9,20 @@ public class DictionaryController {
     private final DictionaryView dictionaryView;
     private final Dictionary dictionary = new Dictionary();
 
-    /*
-     * Initializes the controller
-     */
     public DictionaryController(DictionaryView dictionaryView) {
         this.dictionaryView = dictionaryView;
 
-        /*
-         * Adding some words to the dictionary
-         */
         dictionary.addWord("Book", "A set of pages.");
         dictionary.addWord("Car", "A road vehicle.");
         dictionary.addWord("House", "A building for human habitation.");
-        dictionary.addWord("Computer", "An electronic device for storing and processing data.");
+        dictionary.addWord("Computer", "An electronic device.");
         dictionary.addWord("Phone", "A telephone.");
     }
 
-    /*
-     * Launches the application
-     */
     public static void main(String[] args) {
         DictionaryView.launch(DictionaryView.class);
     }
 
-    /*
-     * Adds a word to the dictionary
-     */
     public void addWordToDictionary() {
         try {
             String answer = Arrays.toString(dictionaryView.getTextInBoxes().split(","));
@@ -43,25 +31,17 @@ public class DictionaryController {
             String meaning = answer.split(",")[1].trim().replace("]", "");
 
             dictionary.addWord(word, meaning);
+
         } catch (Exception e) {
             dictionaryView.illegalArgument();
         }
     }
 
-    /*
-     * Gets the meaning of a word
-     */
     public String getWordMeaning(String word) {
         try {
             return dictionary.getMeaning(word);
         } catch (Exception e) {
             return "Empty field!";
-        }
-    }
-
-    public void getDictionary() {
-        for (int i = 0; i < dictionary.getDictionary().size(); i++) {
-            System.out.printf("%s, %s\n", dictionary.getDictionary().keySet().toArray()[i], dictionary.getDictionary().values().toArray()[i]);
         }
     }
 }

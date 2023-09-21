@@ -10,9 +10,6 @@ public class Dictionary {
         dictionary = new HashMap<>();
     }
 
-    /*
-     * Adds a word to the dictionary
-     */
     public void addWord(String word, String meaning) {
         if (word.isEmpty() || meaning.isEmpty()) {
             throw new IllegalArgumentException();
@@ -21,9 +18,6 @@ public class Dictionary {
         }
     }
 
-    /*
-     * Gets the meaning of a word
-     */
     public String getMeaning(String word) {
         String meaning = dictionary.get(word.toLowerCase());
 
@@ -34,9 +28,5 @@ public class Dictionary {
         } else {
             return String.format("%s is not in the dictionary", word);
         }
-    }
-
-    public Map<String, String> getDictionary() {
-        return dictionary;
     }
 }

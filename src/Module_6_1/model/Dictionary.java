@@ -35,4 +35,8 @@ public class Dictionary {
             return String.format("%s is not in the dictionary", word);
         }
     }
+
+    public Map<String, String> getDictionary() {
+        return dictionary;
+    }
 }

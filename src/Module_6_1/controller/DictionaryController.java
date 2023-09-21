@@ -55,4 +55,10 @@ public class DictionaryController {
             return "Empty field!";
         }
     }
+
+    public void getDictionary() {
+        for (int i = 0; i < dictionary.getDictionary().size(); i++) {
+            System.out.printf("%s, %s\n", dictionary.getDictionary().keySet().toArray()[i], dictionary.getDictionary().values().toArray()[i]);
+        }
+    }
 }

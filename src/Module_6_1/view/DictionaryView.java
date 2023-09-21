@@ -22,6 +22,7 @@ public class DictionaryView extends Application {
     public void start(Stage stage) {
         Button addWordButton = new Button("Add Word");
         Button getMeaningButton = new Button("Get Meaning");
+        Button printLibrary = new Button("Print Library");
 
         FlowPane pane = new FlowPane();
 
@@ -35,6 +36,7 @@ public class DictionaryView extends Application {
         FlowPane.setMargin(meaning, insets);
         FlowPane.setMargin(addWordButton, insets);
         FlowPane.setMargin(getMeaningButton, insets);
+        FlowPane.setMargin(printLibrary, insets);
 
         /*
          * Adding the nodes to the pane
@@ -43,6 +45,7 @@ public class DictionaryView extends Application {
         pane.getChildren().add(meaning);
         pane.getChildren().add(addWordButton);
         pane.getChildren().add(getMeaningButton);
+        pane.getChildren().add(printLibrary);
 
         /*
          * Setting the scene
@@ -57,6 +60,10 @@ public class DictionaryView extends Application {
 
         getMeaningButton.setOnAction(actionEvent -> {
             getWordMeaning();
+        });
+
+        printLibrary.setOnAction(actionEvent -> {
+            controller.getDictionary();
         });
     }
 
@@ -79,7 +86,11 @@ public class DictionaryView extends Application {
      */
     public void getWordMeaning() {
         String wordMeaning = controller.getWordMeaning(word.getText());
-        meaning.setText(wordMeaning);
+        if (word.getText().isEmpty()) {
+            word.setText("Empty field");
+        } else {
+            meaning.setText(wordMeaning);
+        }
     }
 
     /*

@@ -40,3 +40,5 @@ bin/
 /*.ser
 /target/*
 /.idea/jarRepositories.xml
+/.idea/compiler.xml
+/.idea/encodings.xml

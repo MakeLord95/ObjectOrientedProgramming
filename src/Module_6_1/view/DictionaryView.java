@@ -35,6 +35,7 @@ public class DictionaryView extends Application {
         pane.getChildren().add(getMeaningButton);
 
         Scene scene = new Scene(pane);
+        stage.setResizable(false);
         stage.setScene(scene);
         stage.show();
 

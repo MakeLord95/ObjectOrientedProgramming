@@ -64,12 +64,16 @@ public class CurrencyConverterView extends Application {
         Button convertButton = new Button("Convert");
 
         sourceCurrency.setPrefWidth(150.0);
-        sourceCurrency.getItems().addAll("USD", "EUR", "GBP");
-        sourceCurrency.setValue("USD");
+        for (int i = 0; i < controller.getCurrencies().size(); i++) {
+            sourceCurrency.getItems().add(controller.getCurrencies().get(i).getName());
+        }
+        sourceCurrency.setValue(controller.getCurrencies().get(0).getName());
 
         targetCurrency.setPrefWidth(150.0);
-        targetCurrency.getItems().addAll("USD", "EUR", "GBP");
-        targetCurrency.setValue("EUR");
+        for (int i = 0; i < controller.getCurrencies().size(); i++) {
+            targetCurrency.getItems().add(controller.getCurrencies().get(i).getName());
+        }
+        targetCurrency.setValue(controller.getCurrencies().get(0).getName());
 
         Label labelFrom = new Label("From");
         Label labelTo = new Label("To");

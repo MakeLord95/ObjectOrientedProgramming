@@ -102,6 +102,9 @@ public class CurrencyConverterView extends Application {
         );
 
         Scene scene = new Scene(gridPane);
+
+        scene.getStylesheets().add("Module_6_2/resources/style.css");
+
         primaryStage.setScene(scene);
         primaryStage.setTitle("Currency Converter");
         primaryStage.setResizable(false);

@@ -10,8 +10,8 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class PetView extends Application {
-    private final int canvasSize = 500;
-    private final int petSize = canvasSize / 10;
+    private final int canvasSize = 1000;
+    private final int petSize = canvasSize / 5;
     private final Canvas canvas = new Canvas(canvasSize, canvasSize);
     private final GraphicsContext gc = canvas.getGraphicsContext2D();
     private final Image image = new Image("Module_6_3/resources/pet.png");
@@ -32,7 +32,6 @@ public class PetView extends Application {
         canvas.setOnMouseMoved(event -> {
             int x = (int) event.getX();
             int y = (int) event.getY();
-            System.out.println("x: " + x + ", y: " + y);
             petController.movePet(x, y);
         });
     }

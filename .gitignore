@@ -33,3 +33,4 @@ bin/
 /*.ser
 /target/*
 /.idea*
+/.run/

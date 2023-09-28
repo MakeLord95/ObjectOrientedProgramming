@@ -1,6 +1,4 @@
-USE Currency;
-
-SELECT Name, Abbreviation, ExchangeRate FROM Currencies;
-SELECT * FROM Currencies WHERE Abbreviation='EUR';
-SELECT COUNT(ID) FROM Currencies;
-SELECT * FROM Currencies WHERE ExchangeRate=(SELECT MAX(ExchangeRate) FROM Currencies);
+SELECT Name, Abbreviation, ExchangeRate FROM Currency.Currencies;
+SELECT * FROM Currency.Currencies WHERE Abbreviation='EUR';
+SELECT COUNT(ID) FROM Currency.Currencies;
+SELECT * FROM Currency.Currencies WHERE ExchangeRate=(SELECT MAX(ExchangeRate) FROM Currency.Currencies);

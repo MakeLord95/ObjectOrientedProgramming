@@ -12,7 +12,6 @@ public class NotebookView extends Application {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../resources/notebook.fxml"));
         Parent root = fxmlLoader.load();
 
-        stage.getStyle().getClass().getResource("../resources/style.css");
         stage.setScene(new Scene(root));
         stage.setTitle("Notebook");
         stage.setResizable(false);

@@ -5,13 +5,16 @@ USE Currency;
 
 CREATE TABLE Currencies
 (
-    ID           int(11)          not null auto_increment,
-    Name         varchar(50)      not null,
-    Abbreviation varchar(50)      not null,
-    ExchangeRate double DEFAULT 0 not null,
-    Symbol       varchar(50)      not null,
+    ID           INT(11)                                                      NOT NULL AUTO_INCREMENT,
+    Name         VARCHAR(50)                                                  NOT NULL,
+    Abbreviation VARCHAR(50)                                                  NOT NULL,
+    ExchangeRate DOUBLE DEFAULT 0                                             NOT NULL,
+    Symbol       VARCHAR(50) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
     PRIMARY KEY (ID)
 );
+
+ALTER TABLE currencies
+    AUTO_INCREMENT = 1;
 
 INSERT INTO Currencies (Name, Abbreviation, ExchangeRate, Symbol)
 VALUES ('Euro', 'EUR', 0.95, '€'),

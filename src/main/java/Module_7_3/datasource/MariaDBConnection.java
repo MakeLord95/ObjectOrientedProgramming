@@ -1,21 +1,20 @@
 package Module_7_3.datasource;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 
 public class MariaDBConnection {
-    private static Connection conn;
+    private static EntityManagerFactory entityManagerFactory = null;
+    private static EntityManager entityManager = null;
 
-    public static Connection getConnection() {
-        if (conn == null) {
-            try {
-                conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/Currency", "appuser", "appuser");
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+    public static EntityManager getInstance() {
+        if (entityManager == null) {
+            if (entityManagerFactory == null) {
+                entityManagerFactory = Persistence.createEntityManagerFactory("Module_7_3");
             }
+            entityManager = entityManagerFactory.createEntityManager();
         }
-
-        return conn;
-
+        return entityManager;
     }
 }

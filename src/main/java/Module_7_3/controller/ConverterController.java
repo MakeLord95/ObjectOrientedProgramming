@@ -20,6 +20,8 @@ public class ConverterController {
     @FXML
     private Button convertButton;
     @FXML
+    private Button newCurrencyButton;
+    @FXML
     private TextField amountBox;
     @FXML
     private TextField resultBox;
@@ -42,6 +44,10 @@ public class ConverterController {
         } catch (Exception e) {
             amountBox.setStyle("-fx-background-color: red;");
         }
+    }
+
+    public void newCurrency() {
+        System.out.println("New currency");
     }
 
     public void initialize() {

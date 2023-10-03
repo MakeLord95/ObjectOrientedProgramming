@@ -13,7 +13,7 @@ public class CurrencyDAO {
 
     public static int getCurrencyCount() {
         try {
-            PreparedStatement statement = conn.prepareStatement("SELECT COUNT(ID) FROM currencies;");
+            PreparedStatement statement = conn.prepareStatement("SELECT COUNT(ID) FROM Currencies;");
             ResultSet rs = statement.executeQuery();
             if (rs.next()) {
                 return rs.getInt(1);
@@ -26,7 +26,7 @@ public class CurrencyDAO {
 
     public static Currency getCurrency(int id) {
         try {
-            PreparedStatement statement = conn.prepareStatement("SELECT * FROM currencies where ID = ?;");
+            PreparedStatement statement = conn.prepareStatement("SELECT * FROM Currencies where ID = ?;");
 
             statement.setInt(1, id);
             ResultSet rs = statement.executeQuery();
@@ -45,7 +45,7 @@ public class CurrencyDAO {
 
     public static double getRate(String abbreviation) {
         try {
-            PreparedStatement statement = conn.prepareStatement("SELECT ExchangeRate FROM currencies where Abbreviation = ?;");
+            PreparedStatement statement = conn.prepareStatement("SELECT ExchangeRate FROM Currencies where Abbreviation = ?;");
 
             statement.setString(1, abbreviation);
             ResultSet rs = statement.executeQuery();

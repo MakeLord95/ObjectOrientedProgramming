@@ -9,7 +9,7 @@ public class MariaDBConnection {
     public static Connection getConnection() {
         if (conn == null) {
             try {
-                conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/currency", "appuser", "appuser");
+                conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/Currency", "appuser", "appuser");
             } catch (Exception e) {
                 System.out.println(e.getMessage());
             }

@@ -13,7 +13,7 @@ CREATE TABLE Currencies
     PRIMARY KEY (ID)
 );
 
-ALTER TABLE currencies
+ALTER TABLE Currencies
     AUTO_INCREMENT = 1;
 
 INSERT INTO Currencies (Name, Abbreviation, ExchangeRate, Symbol)

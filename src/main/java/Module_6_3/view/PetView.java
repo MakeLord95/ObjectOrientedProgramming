@@ -14,7 +14,7 @@ public class PetView extends Application {
     private final int petSize = canvasSize / 5;
     private final Canvas canvas = new Canvas(canvasSize, canvasSize);
     private final GraphicsContext gc = canvas.getGraphicsContext2D();
-    private final Image image = new Image("Module_6_3/resources/pet.png");
+    private final Image image = new Image("/Module_6_3/pet.png");
     private PetController petController;
 
     @Override

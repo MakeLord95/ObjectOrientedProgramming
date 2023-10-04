@@ -20,4 +20,10 @@ public class CurrencyDAO {
                 .setParameter("abbreviation", abbreviation)
                 .getSingleResult();
     }
+
+    public static void addCurrency(Currency currency) {
+        entityManager.getTransaction().begin();
+        entityManager.persist(currency);
+        entityManager.getTransaction().commit();
+    }
 }

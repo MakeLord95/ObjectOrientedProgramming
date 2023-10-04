@@ -8,34 +8,36 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class ConverterView extends Application {
+    private final Stage newStage = new Stage();
+    private ConverterController converterController;
 
     @Override
     public void start(Stage stage) throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(ConverterView.class.getResource("/Module_7_3/CurrencyConverter.fxml"));
-        Parent root = fxmlLoader.load();
+        FXMLLoader converterLoader = new FXMLLoader(getClass().getResource("/Module_7_3/CurrencyConverter.fxml"));
+        Parent root = converterLoader.load();
 
         stage.setTitle("Currency Converter");
         stage.setScene(new Scene(root));
         stage.setResizable(false);
         stage.show();
 
-        ConverterController converterController = fxmlLoader.getController();
-        converterController.newCurrencyButton.setOnAction(event -> createNewStage());
+        converterController = converterLoader.getController();
+        converterController.startup();
     }
 
-    // Doesn't work
-    //TODO: fix this
-    public void createNewStage() {
-        Stage newStage = new Stage();
-        try {
-            FXMLLoader fxmlLoader = new FXMLLoader(ConverterView.class.getResource("/Module_7_3/NewCurrency.fxml"));
-            Parent root = fxmlLoader.load();
-            newStage.setTitle("New Currency");
-            newStage.setScene(new Scene(root));
-            newStage.setResizable(false);
-            newStage.show();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+    public void createNewStage() throws Exception {
+        FXMLLoader newCurrencyLoader = new FXMLLoader(getClass().getResource("/Module_7_3/NewCurrency.fxml"));
+        Parent root = newCurrencyLoader.load();
+
+        newStage.setTitle("New Currency");
+        newStage.setScene(new Scene(root));
+        newStage.setResizable(false);
+        newStage.show();
+
+        converterController = newCurrencyLoader.getController();
+        converterController.addNewCurrencyButton.setOnAction(e -> {
+            converterController.addNewCurrency();
+            newStage.close();
+        });
     }
 }

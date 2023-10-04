@@ -11,6 +11,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Objects;
 
 public class ConverterController {
@@ -23,8 +24,6 @@ public class ConverterController {
     @FXML
     private Button convertButton;
     @FXML
-    public Button newCurrencyButton;
-    @FXML
     private TextField amountBox;
     @FXML
     private TextField resultBox;
@@ -32,6 +31,8 @@ public class ConverterController {
     private ChoiceBox<String> sourceCurrency;
     @FXML
     private ChoiceBox<String> targetCurrency;
+    @FXML
+    private Button newCurrencyButton;
     @FXML
     private TextField newCurrencyName;
     @FXML
@@ -41,7 +42,7 @@ public class ConverterController {
     @FXML
     private TextField newCurrencyRate;
     @FXML
-    private Button addNewCurrencyButton;
+    public Button addNewCurrencyButton;
 
     public void convertCurrency() {
         try {
@@ -61,9 +62,14 @@ public class ConverterController {
 
     public void newCurrency() {
         System.out.println("New currency button pressed");
+        try {
+            converterView.createNewStage();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }
 
-    public void initialize() {
+    public void startup() {
         System.out.println("Application started");
 
         resultBox.setEditable(false);
@@ -105,13 +111,24 @@ public class ConverterController {
             warningLabel.setText("Database connection Failed");
             warningLabel.setVisible(true);
 
-            warningLabel.setOnMouseClicked(event -> initialize());
+            warningLabel.setOnMouseClicked(event -> startup());
         }
     }
 
-    //TODO: Implement this method
     public void addNewCurrency() {
         System.out.println("Add new currency");
+        try {
+            String name = newCurrencyName.getText();
+            String abbreviation = newCurrencyAbbreviation.getText();
+            String symbol = newCurrencySymbol.getText();
+            double rate = Double.parseDouble(newCurrencyRate.getText());
+
+            Currency currency = new Currency(name, abbreviation, rate, symbol);
+            System.out.println(currency);
+            CurrencyDAO.addCurrency(currency);
+        } catch (Exception e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
     }
 
     public void disableButtons() {

@@ -19,12 +19,18 @@ public class Currency {
     @Column(name = "ExchangeRate")
     private double exchangeRate;
 
+    @Column(name = "Symbol")
+    private String symbol;
+
+
     public Currency() {
     }
 
-    public Currency(String name, String abbreviation) {
+    public Currency(String name, String abbreviation, double exchangeRate, String symbol) {
         this.name = name;
         this.abbreviation = abbreviation;
+        this.exchangeRate = exchangeRate;
+        this.symbol = symbol;
     }
 
     public String getName() {
@@ -49,5 +55,14 @@ public class Currency {
 
     public void setExchangeRate(double exchangeRate) {
         this.exchangeRate = exchangeRate;
+    }
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("%s %s %s %s", name, abbreviation, exchangeRate, symbol);
     }
 }

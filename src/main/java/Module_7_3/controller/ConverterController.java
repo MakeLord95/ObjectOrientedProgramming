@@ -3,6 +3,7 @@ package Module_7_3.controller;
 import Module_7_3.dao.CurrencyDAO;
 import Module_7_3.entity.Currency;
 import Module_7_3.entity.CurrencyConverter;
+import Module_7_3.view.ConverterView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
@@ -15,12 +16,14 @@ import java.util.Objects;
 public class ConverterController {
     private final ArrayList<String> currencyAbbreviations = new ArrayList<>();
     private final CurrencyConverter currencyConverter = new CurrencyConverter();
+    private final ConverterView converterView = new ConverterView();
+
     @FXML
     private Label warningLabel;
     @FXML
     private Button convertButton;
     @FXML
-    private Button newCurrencyButton;
+    public Button newCurrencyButton;
     @FXML
     private TextField amountBox;
     @FXML
@@ -29,6 +32,16 @@ public class ConverterController {
     private ChoiceBox<String> sourceCurrency;
     @FXML
     private ChoiceBox<String> targetCurrency;
+    @FXML
+    private TextField newCurrencyName;
+    @FXML
+    private TextField newCurrencyAbbreviation;
+    @FXML
+    private TextField newCurrencySymbol;
+    @FXML
+    private TextField newCurrencyRate;
+    @FXML
+    private Button addNewCurrencyButton;
 
     public void convertCurrency() {
         try {
@@ -47,7 +60,7 @@ public class ConverterController {
     }
 
     public void newCurrency() {
-        System.out.println("New currency");
+        System.out.println("New currency button pressed");
     }
 
     public void initialize() {
@@ -94,6 +107,11 @@ public class ConverterController {
 
             warningLabel.setOnMouseClicked(event -> initialize());
         }
+    }
+
+    //TODO: Implement this method
+    public void addNewCurrency() {
+        System.out.println("Add new currency");
     }
 
     public void disableButtons() {

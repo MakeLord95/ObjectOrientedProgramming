@@ -29,4 +29,4 @@ VALUES ('US Dollar', 'USD', 1, '$'),
 DROP USER IF EXISTS 'appuser'@'localhost';
 CREATE USER 'appuser'@'localhost' IDENTIFIED BY 'appuser';
 
-GRANT SELECT ON Currency.* TO 'appuser'@'localhost';
+GRANT SELECT, INSERT ON Currency.* TO 'appuser'@'localhost';

@@ -23,6 +23,15 @@ public class ConverterView extends Application {
 
         converterController = converterLoader.getController();
         converterController.startup();
+
+        converterController.newCurrencyButton.setOnAction(e -> {
+            try {
+                createNewStage();
+                stage.close();
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
+        });
     }
 
     public void createNewStage() throws Exception {
@@ -38,6 +47,11 @@ public class ConverterView extends Application {
         converterController.addNewCurrencyButton.setOnAction(e -> {
             converterController.addNewCurrency();
             newStage.close();
+            try {
+                start(new Stage());
+            } catch (Exception ex) {
+                System.out.println(ex.getMessage());
+            }
         });
     }
 }

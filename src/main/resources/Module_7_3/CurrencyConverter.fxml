@@ -67,7 +67,8 @@
       </GridPane.margin>
    </Label>
    <Label fx:id="warningLabel" alignment="CENTER" prefHeight="17.0" prefWidth="160.0" text="Temp" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
-   <Button fx:id="newCurrencyButton" mnemonicParsing="false" onAction="#newCurrency" prefHeight="24.0" prefWidth="150.0" text="New Currency" GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+   <Button fx:id="newCurrencyButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="New Currency"
+           GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
       <GridPane.margin>
          <Insets bottom="10.0" left="35.0" right="15.0" />
       </GridPane.margin>

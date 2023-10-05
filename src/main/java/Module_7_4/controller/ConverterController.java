@@ -33,6 +33,16 @@ public class ConverterController {
     private ChoiceBox<String> targetCurrency;
     @FXML
     public Button newCurrencyButton;
+    @FXML
+    public Button addNewCurrencyButton;
+    @FXML
+    private TextField newCurrencyName;
+    @FXML
+    private TextField newCurrencyAbbreviation;
+    @FXML
+    private TextField newCurrencySymbol;
+    @FXML
+    private TextField newCurrencyRate;
 
     public void convertCurrency() {
         try {
@@ -86,7 +96,6 @@ public class ConverterController {
         });
 
         try {
-            addCurrencies();
             enableButtons();
 
             warningLabel.setVisible(false);
@@ -117,13 +126,29 @@ public class ConverterController {
         }
     }
 
+    public void addNewCurrency() {
+        System.out.println("Add new currency");
+        try {
+            String name = newCurrencyName.getText();
+            String abbreviation = newCurrencyAbbreviation.getText();
+            String symbol = newCurrencySymbol.getText();
+            double rate = Double.parseDouble(newCurrencyRate.getText());
+
+            Currency2 currency = new Currency2(name, abbreviation, rate, symbol);
+            System.out.println(currency);
+            CurrencyDAO.addCurrency(currency);
+        } catch (Exception e) {
+            System.out.println(Arrays.toString(e.getStackTrace()));
+        }
+    }
+
     public void disableButtons() {
         convertButton.setDisable(true);
         amountBox.setDisable(true);
         sourceCurrency.setDisable(true);
         targetCurrency.setDisable(true);
         resultBox.setDisable(true);
-        newCurrencyButton.setVisible(false);
+        newCurrencyButton.setDisable(true);
     }
 
     public void enableButtons() {
@@ -132,7 +157,7 @@ public class ConverterController {
         sourceCurrency.setDisable(false);
         targetCurrency.setDisable(false);
         resultBox.setDisable(false);
-        newCurrencyButton.setVisible(false);
+        newCurrencyButton.setDisable(false);
     }
 
     public void addCurrencies() {

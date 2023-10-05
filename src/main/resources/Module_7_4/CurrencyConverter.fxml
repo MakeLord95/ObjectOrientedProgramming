@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane prefHeight="100.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Module_7_4.controller.ConverterController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <TextField fx:id="amountBox" GridPane.rowIndex="1">
+      <GridPane.margin>
+         <Insets left="5.0" />
+      </GridPane.margin>
+   </TextField>
+   <TextField fx:id="resultBox" GridPane.columnIndex="4" GridPane.rowIndex="1">
+      <GridPane.margin>
+         <Insets right="5.0" />
+      </GridPane.margin>
+   </TextField>
+   <Button fx:id="convertButton" mnemonicParsing="false" onAction="#convertCurrency" prefHeight="25.0" prefWidth="83.0" text="Convert" GridPane.columnIndex="2" GridPane.rowIndex="2">
+      <GridPane.margin>
+         <Insets bottom="10.0" />
+      </GridPane.margin>
+   </Button>
+   <ChoiceBox fx:id="sourceCurrency" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+      <GridPane.margin>
+         <Insets left="5.0" right="5.0" />
+      </GridPane.margin>
+   </ChoiceBox>
+   <ChoiceBox fx:id="targetCurrency" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
+      <GridPane.margin>
+         <Insets left="5.0" right="5.0" />
+      </GridPane.margin>
+   </ChoiceBox>
+   <Label alignment="CENTER" prefHeight="17.0" prefWidth="78.0" text="From" textAlignment="CENTER" GridPane.columnIndex="1">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </Label>
+   <Label alignment="CENTER" prefHeight="17.0" prefWidth="78.0" text="To" GridPane.columnIndex="3">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </Label>
+   <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="17.0" prefWidth="83.0" text="Amount" textAlignment="CENTER">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </Label>
+   <Label alignment="CENTER" prefHeight="17.0" prefWidth="78.0" text="Result" GridPane.columnIndex="4">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </Label>
+   <Label alignment="CENTER" prefHeight="17.0" prefWidth="72.0" text="→" textAlignment="CENTER" GridPane.columnIndex="2">
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </Label>
+   <Label fx:id="warningLabel" alignment="CENTER" prefHeight="17.0" prefWidth="160.0" text="Temp" textAlignment="CENTER" textFill="RED" visible="false" GridPane.columnSpan="2" GridPane.rowIndex="2" GridPane.rowSpan="2147483647" />
+   <Button fx:id="newCurrencyButton" mnemonicParsing="false" prefHeight="24.0" prefWidth="150.0" text="New Currency"
+           GridPane.columnIndex="3" GridPane.columnSpan="2" GridPane.rowIndex="2">
+      <GridPane.margin>
+         <Insets bottom="10.0" left="35.0" right="15.0" />
+      </GridPane.margin>
+   </Button>
+</GridPane>
